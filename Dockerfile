@@ -1,10 +1,10 @@
-FROM node:12
+FROM openjdk:17
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY . /app/
 
-RUN npm install
+RUN javac main
 
 COPY . .
 
@@ -12,4 +12,4 @@ ENV PORT= 8080
 
 EXPOSE 8080
 
-CMD [ "nmp", "start" ]
+CMD [ "java", "main" ]
